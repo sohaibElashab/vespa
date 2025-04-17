@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Calendar,
   CalendarDays,
@@ -16,8 +16,10 @@ import {
   PenTool,
 } from "lucide-react";
 import Title from "./Title";
+import { scooters } from "../utils/scooter";
+import { tours } from "../utils/tours";
 
-export default function Reservation() {
+export default function Reservation({reservationTour}) {
   const [reservationType, setReservationType] = useState("rental");
   const [selectedVehicle, setSelectedVehicle] = useState(null);
   const [selectedTour, setSelectedTour] = useState(null);
@@ -35,103 +37,12 @@ export default function Reservation() {
     scooters: {},
   });
 
-  const scooters = [
-    {
-      id: 1,
-      name: "Vespa Verde Amabile",
-      type: "scooter",
-      img: "/green-moto.webp",
-      price: "$29/day",
-    },
-    {
-      id: 2,
-      name: "Vespa Bianco Innocente",
-      type: "scooter",
-      img: "/white-moto.webp",
-      price: "$29/day",
-    },
-    {
-      id: 3,
-      name: "Vespa Nero Convinto",
-      type: "scooter",
-      img: "/black-moto.webp",
-      price: "$29/day",
-    },
-    {
-      id: 4,
-      name: "Vespa Blu Energico Matt",
-      type: "scooter",
-      img: "/blue-moto.webp",
-      price: "$29/day",
-    },
-  ];
-
-  const tours = [
-    {
-      id: 1,
-      title: "Palmeraie Vespa Escape",
-      image: "/tour3.webp",
-      duration: "3 hours",
-      highlights: [
-        "Explore the Palmeraie palm grove",
-        "Ride along desert trails",
-        "Visit a traditional Berber home",
-        "Enjoy Moroccan mint tea with locals",
-      ],
-      price: 75,
-      maxPeople: 6,
-      featured: true,
-      rating: 4.9,
-    },
-    {
-      id: 2,
-      title: "Marrakech Sunset Ride",
-      image: "/tour2.webp",
-      duration: "2.5 hours",
-      highlights: [
-        "Cruise through the Red City's outskirts",
-        "Catch stunning sunset views over the city",
-        "Photo stops at scenic spots",
-        "Light Moroccan snacks and tea included",
-      ],
-      price: 65,
-      maxPeople: 4,
-      featured: false,
-      rating: 4.8,
-    },
-    {
-      id: 3,
-      title: "Cultural Medina Tour",
-      image: "/tour.webp",
-      duration: "4 hours",
-      highlights: [
-        "Ride through the historic Medina alleys",
-        "Stop at hidden riads and artisan shops",
-        "Traditional Moroccan lunch included",
-        "Local guide sharing stories & legends",
-      ],
-      price: 85,
-      maxPeople: 5,
-      featured: false,
-      rating: 4.9,
-    },
-    {
-      id: 4,
-      title: "Atlas Mountains Day Trip",
-      image: "/tour4.webp",
-      duration: "6 hours",
-      highlights: [
-        "Vespa ride towards the Atlas foothills",
-        "Breathtaking mountain views",
-        "Visit to a Berber village",
-        "Lunch with a view in a local guesthouse",
-      ],
-      price: 99,
-      maxPeople: 4,
-      featured: true,
-      rating: 4.9,
-    },
-  ];
+  useEffect(() => {
+    if (reservationTour) {
+      setReservationType("tour");
+      handleTourSelection(reservationTour.id);
+    }
+  }, [reservationTour]);
 
   const handleVehicleSelection = (vehicleId) => {
     if (!vehicleQuantities[vehicleId]) {
@@ -388,7 +299,7 @@ export default function Reservation() {
                         <div className="flex space-x-3">
                           <div className=" flex items-center justify-center">
                             <img
-                              src={scooter.img}
+                              src={scooter.image}
                               alt={scooter.name}
                               className=" h-16 object-cover"
                             />
@@ -473,14 +384,14 @@ export default function Reservation() {
             ) : (
               <div>
                 <div className="flex justify-between items-center mb-4">
-                  <h3 className="text-lg font-semibold text-gray-900 flex items-center">
+                  <h3 className="md:text-lg font-semibold text-gray-900 flex items-center">
                     <Navigation className="w-5 h-5 mr-2 text-yellow-700" />
                     Select Tour
                   </h3>
                   <button
                     type="button"
                     onClick={toggleCustomTour}
-                    className={`px-4 py-2 rounded-lg text-sm transition-colors flex items-center ${
+                    className={`md:px-4 px-2 py-2 rounded-lg text-sm transition-colors flex items-center ${
                       showCustomTour
                         ? "bg-yellow-700 text-white"
                         : "border border-yellow-700 text-yellow-700 hover:bg-yellow-50"
@@ -582,7 +493,7 @@ export default function Reservation() {
                         >
                           <div className="flex items-center">
                             <img
-                              src={scooter.img}
+                              src={scooter.image}
                               alt={scooter.name}
                               className=" h-16 object-cover"
                             />
@@ -708,7 +619,7 @@ export default function Reservation() {
                               </p>
                             )}
 
-                            <div className="flex items-center space-x-3">
+                            <div className="flex md:items-center flex-col md:flex-row md:space-y-0 md:space-x-3 space-y-3">
                               <button
                                 type="button"
                                 onClick={() => toggleTourDetails(tour.id)}
@@ -737,16 +648,6 @@ export default function Reservation() {
                                   "Select Tour"
                                 )}
                               </button>
-                              {selectedTour === tour.id && (
-                                <button
-                                  type="button"
-                                  onClick={() => setSelectedTour(null)}
-                                  className="px-3 py-1.5 rounded-lg text-sm bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors flex items-center"
-                                >
-                                  <X className="w-4 h-4 mr-1" />
-                                  Deselect
-                                </button>
-                              )}
                             </div>
                           </div>
                         </div>

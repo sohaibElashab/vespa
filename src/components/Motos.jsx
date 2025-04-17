@@ -1,15 +1,7 @@
 import { useState } from "react";
 import Title from "./Title";
+import { scooters } from "../utils/scooter";
 
-const scooters = {
-  price: 29,
-  colors: [
-    { image: "green-moto", code: "bg-green-200", name: "Verde Amabile" },
-    { image: "white-moto", code: "bg-white", name: "Bianco Innocente" },
-    { image: "black-moto", code: "bg-black", name: "Nero Convinto" },
-    { image: "blue-moto", code: "bg-blue-950", name: "Blu Energico Matt" },
-  ],
-};
 export default function ScooterDisplay() {
   const [scooterState, setScooterState] = useState(scooters);
   const [activeColor, setActiveColor] = useState(0);
@@ -27,14 +19,14 @@ export default function ScooterDisplay() {
         <div className="flex flex-col items-center">
           <div className="h-96 w-full mb-6 flex items-center justify-center">
             <img
-              src={`/${scooterState.colors[activeColor].image}.webp`}
-              alt={scooterState.colors[activeColor].name}
+              src={scooterState[activeColor].image}
+              alt={scooterState[activeColor].name}
               className="max-h-full object-contain"
             />
           </div>
 
           <div className="flex gap-2 mb-4">
-            {scooterState.colors.map((color, index) => (
+            {scooterState.map((color, index) => (
               <button
                 key={index}
                 className={`w-6 h-6 rounded-full ${color.code} ${
@@ -49,11 +41,11 @@ export default function ScooterDisplay() {
           </div>
 
           <h3 className="text-lg font-bold text-center text-gray-800 mb-1">
-            {scooterState.colors[activeColor].name}
+            {scooterState[activeColor].name}
           </h3>
 
           <p className="text-md font-medium text-center text-gray-500">
-            $ {scooterState.price.toLocaleString()}
+            {scooterState[activeColor].price}
           </p>
         </div>
       </div>

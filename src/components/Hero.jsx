@@ -13,7 +13,7 @@ export default function Hero() {
     <section className="relative h-screen bg-white flex items-center overflow-hidden">
       {/* Main content */}
       <img
-        src="/hero.webp"
+        src="hero.webp"
         alt="Vespa Scooter"
         className="xl:w-[60%] md:w-[70%] hidden md:block w-full h-auto object-contain md:object-right max-h-96 md:max-h-screen absolute right-0 top-1/2 -translate-y-1/2"
       />
@@ -59,15 +59,16 @@ export default function Hero() {
             isLoaded ? "opacity-100 translate-x-0" : "opacity-0 translate-x-24"
           }`}
         >
-          <div className="relative h-full flex items-center justify-center md:justify-end">
+          <div className="relative h-[400px] flex items-center justify-center md:justify-end">
             {/* Decorative circles */}
-            <div className="absolute right-[30%] top-[30px] w-28 h-28 rounded-full bg-blue-950 animate-pulse"></div>
-            <div className="absolute left-[-70px] bottom-[-180px] w-32 h-32 rounded-full bg-green-200 animate-pulse"></div>
-            <div className="absolute left-[50px] w-16 h-16 rounded-full bg-black animate-pulse"></div>
+            {/* <div className="absolute right-[30%] top-[30%] w-28 h-28 rounded-full bg-blue-950 animate-pulse"></div>
+            <div className="absolute left-[-10%] bottom-0 w-32 h-32 rounded-full bg-green-200 animate-pulse"></div>
+            <div className="absolute left-[10%] w-16 h-16 rounded-full bg-black animate-pulse"></div>
+            <div className="absolute left-[50%] bottom-10 w-16 h-16 rounded-full bg-orange-500 animate-pulse"></div> */}
           </div>
         </div>
         <img
-          src="/hero-mobile.webp"
+          src="hero-mobile.webp"
           alt="Vespa Scooter"
           className="xl:w-[60%] md:w-[70%] md:hidden block w-full h-auto object-contain max-h-96"
         />

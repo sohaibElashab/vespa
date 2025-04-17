@@ -1,6 +1,6 @@
 export default function Title({ title1, Htitle, title2, desc }) {
   return (
-    <div className="text-center mb-16">
+    <div className="text-center md:mb-16">
       <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
         <span className="text-[#152037]">{title1}</span>{" "}
         <span className="relative inline-block mx-2">

@@ -1,0 +1,42 @@
+export const scooters = [
+  {
+    id: 1,
+    image: "green-moto.webp",
+    code: "bg-green-200",
+    price: "$29/day",
+    name: "Verde Amabile",
+    type: "scooter",
+  },
+  {
+    id: 2,
+    image: "white-moto.webp",
+    code: "bg-white",
+    price: "$29/day",
+    name: "Bianco Innocente",
+    type: "scooter",
+  },
+  {
+    id: 3,
+    image: "black-moto.webp",
+    code: "bg-black",
+    price: "$29/day",
+    name: "Nero Convinto",
+    type: "scooter",
+  },
+  {
+    id: 4,
+    image: "orange-moto.webp",
+    code: "bg-orange-500",
+    price: "$29/day",
+    name: "Arancio Impulsivo",
+    type: "scooter",
+  },
+  {
+    id: 5,
+    image: "blue-moto.webp",
+    code: "bg-blue-950",
+    price: "$29/day",
+    name: "Blu Energico Matt",
+    type: "scooter",
+  },
+];

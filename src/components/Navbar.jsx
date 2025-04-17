@@ -47,7 +47,7 @@ export default function Navbar() {
     <header
       className={`fixed w-full z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/95 backdrop-blur-md shadow-md py-2"
+          ? "bg-white/95 md:backdrop-blur-md shadow-md py-2"
           : "bg-transparent py-4"
       }`}
     >
@@ -60,7 +60,7 @@ export default function Navbar() {
             <div className="flex items-center">
               {/* Moroccan-style icon/logo placeholder */}
               <div className="w-10 h-10 rounded-full bg-orange-900 flex items-center justify-center mr-3">
-                <img src="/logo.webp" alt="logo" />
+                <img src="logo.webp" alt="logo" />
               </div>
               <div>
                 <span
@@ -169,6 +169,7 @@ export default function Navbar() {
                   <Link
                     to={item.href}
                     smooth={true}
+                    onClick={closeAll}
                     className="text-base font-medium text-gray-900 hover:text-orange-900 cursor-pointer transition-colors"
                   >
                     {item.name}
@@ -188,7 +189,7 @@ export default function Navbar() {
               className="block w-full bg-yellow-700 text-white text-center py-3 rounded-full font-medium hover:bg-yellow-950 transition-colors cursor-pointer mt-8 shadow-md"
               onClick={closeAll}
             >
-              Book Your Stay
+              Book Your Adventure
             </Link>
           </div>
         </div>

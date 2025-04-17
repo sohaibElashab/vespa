@@ -10,14 +10,28 @@ import Reservation from "./components/Reservation";
 import Footer from "./components/Footer";
 
 function App() {
+  const [reservation, setReservation] = useState(null);
+
+  const handleReservation = (data) => {
+    setReservation(data);
+    const reservationElement = document.getElementById("reservation");
+    if (reservationElement) {
+      setTimeout(() => {
+        reservationElement.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }, 100);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
       <Hero />
       <Motos />
-      <Tours/>
-      <Reservation />
+      <Tours onBook={handleReservation} />
+      <Reservation reservationTour={reservation} />
       <Testimonials />
       <Gallery />
       <LocationMap />

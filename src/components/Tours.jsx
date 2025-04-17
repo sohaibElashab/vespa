@@ -1,73 +1,7 @@
 import { useState } from "react";
 import { Calendar, Map, Clock, Users } from "lucide-react";
 import Title from "./Title";
-
-const tours = [
-  {
-    id: 1,
-    title: "Palmeraie Vespa Escape",
-    image: "/tour3.webp",
-    duration: "3 hours",
-    highlights: [
-      "Explore the Palmeraie palm grove",
-      "Ride along desert trails",
-      "Visit a traditional Berber home",
-      "Enjoy Moroccan mint tea with locals",
-    ],
-    price: 75,
-    maxPeople: 6,
-    featured: true,
-    rating: 4.9,
-  },
-  {
-    id: 2,
-    title: "Marrakech Sunset Ride",
-    image: "/tour2.webp",
-    duration: "2.5 hours",
-    highlights: [
-      "Cruise through the Red City's outskirts",
-      "Catch stunning sunset views over the city",
-      "Photo stops at scenic spots",
-      "Light Moroccan snacks and tea included",
-    ],
-    price: 65,
-    maxPeople: 4,
-    featured: false,
-    rating: 4.8,
-  },
-  {
-    id: 3,
-    title: "Cultural Medina Tour",
-    image: "/tour.webp",
-    duration: "4 hours",
-    highlights: [
-      "Ride through the historic Medina alleys",
-      "Stop at hidden riads and artisan shops",
-      "Traditional Moroccan lunch included",
-      "Local guide sharing stories & legends",
-    ],
-    price: 85,
-    maxPeople: 5,
-    featured: false,
-    rating: 4.9,
-  },
-  {
-    id: 4,
-    title: "Atlas Mountains Day Trip",
-    image: "/tour4.webp",
-    duration: "6 hours",
-    highlights: [
-      "Vespa ride towards the Atlas foothills",
-      "Breathtaking mountain views",
-      "Visit to a Berber village",
-      "Lunch with a view in a local guesthouse",
-    ],
-    price: 99,
-    maxPeople: 4,
-    featured: true,
-    rating: 4.9,
-  },
-];
+import { tours } from "../utils/tours";
 
 export default function Tours({ onBook }) {
   const [selectedTour, setSelectedTour] = useState(null);
@@ -169,7 +103,7 @@ export default function Tours({ onBook }) {
 
                   <div className="flex items-center justify-between">
                     <div>
-                      <span className="text-3xl font-bold text-yellow-700">
+                      <span className="md:text-3xl text-xl font-bold text-yellow-700">
                         ${tour.price}
                       </span>
                       <span className="text-gray-600 text-sm">/person</span>
@@ -178,7 +112,7 @@ export default function Tours({ onBook }) {
                     <div className="space-x-2 flex">
                       <button
                         onClick={() => handleViewDetails(tour.id)}
-                        className="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors"
+                        className="p-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors"
                       >
                         {isExpanded ? "Less Info" : "More Info"}
                       </button>

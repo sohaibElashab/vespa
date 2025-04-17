@@ -3,32 +3,32 @@ import Title from "./Title";
 const images = [
   {
     id: 1,
-    url: "/gallery1.webp",
+    url: "gallery1.webp",
     alt: "Scenic coastal road",
   },
   {
     id: 2,
-    url: "/gallery2.webp",
+    url: "gallery2.webp",
     alt: "Sunset view",
   },
   {
     id: 3,
-    url: "/gallery3.webp",
+    url: "gallery3.webp",
     alt: "Cultural site",
   },
   {
     id: 4,
-    url: "/gallery4.webp",
+    url: "gallery4.webp",
     alt: "ATV adventure",
   },
   {
     id: 5,
-    url: "/gallery5.webp",
+    url: "gallery5.webp",
     alt: "Beach exploration",
   },
   {
     id: 6,
-    url: "/gallery6.webp",
+    url: "gallery6.webp",
     alt: "Mountain biking",
   },
 ];
