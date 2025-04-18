@@ -26,7 +26,7 @@ export default function Footer() {
         {/* Logo or Brand - Optional */}
         <div className="flex justify-center mb-8">
           <div className="text-xl md:text-2xl font-bold text-white">
-            Rintal <span className="text-orange-900">By Rita</span>
+            Moto <span className="text-orange-900">By Rita</span>
           </div>
         </div>
 
@@ -63,7 +63,7 @@ export default function Footer() {
         {/* Copyright */}
         <div className="text-center">
           <p className="text-sm text-gray-400">
-            © {year} Rintal By Rita, Inc. All rights reserved.
+            © {year} Moto By Rita, Inc. All rights reserved.
           </p>
         </div>
       </div>

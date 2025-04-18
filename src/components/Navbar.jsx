@@ -66,7 +66,7 @@ export default function Navbar() {
                 <span
                   className={`text-2xl font-bold tracking-tight text-[#1B1613]`}
                 >
-                  Rintal By <span className="text-orange-900">Rita</span>
+                  Moto By <span className="text-orange-900">Rita</span>
                 </span>
               </div>
             </div>
@@ -149,7 +149,7 @@ export default function Navbar() {
               onClick={closeAll}
             >
               <span className="text-xl font-bold text-[#1B1613]">
-                Rintal By <span className="text-orange-900">Rita</span>
+                Moto By <span className="text-orange-900">Rita</span>
               </span>
             </Link>
             <button
