@@ -1,7 +1,10 @@
+import { useState, useEffect } from "react";
 import Title from "./Title";
 import { Phone, Mail, Clock, MapPin, Navigation } from "lucide-react";
 
 export default function LocationMap() {
+  const [mapLoading, setMapLoading] = useState(true);
+
   return (
     <section id="contact" className="py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -15,7 +18,15 @@ export default function LocationMap() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-12">
           {/* Map Card */}
           <div className="lg:col-span-2 bg-white rounded-lg shadow-lg overflow-hidden">
-            <div className="aspect-[16/9]">
+            <div className="aspect-[16/9] relative">
+              {mapLoading && (
+                <div className="absolute inset-0 flex items-center justify-center bg-gray-100 z-10">
+                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-yellow-700"></div>
+                  <span className="ml-3 text-gray-600 font-medium">
+                    Loading map...
+                  </span>
+                </div>
+              )}
               <iframe
                 title="Location Map"
                 src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=31.638668,%20-8.006310+(Tropical%20Island%20Resort)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
@@ -25,6 +36,7 @@ export default function LocationMap() {
                 allowFullScreen=""
                 loading="lazy"
                 className="w-full h-full"
+                onLoad={() => setMapLoading(false)}
               ></iframe>
             </div>
             <div className="p-6">
@@ -93,7 +105,6 @@ export default function LocationMap() {
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>

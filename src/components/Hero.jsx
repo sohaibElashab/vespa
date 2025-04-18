@@ -10,7 +10,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative h-screen bg-white flex items-center overflow-hidden">
+    <section className="relative h-screen bg-white flex items-center overflow-hidden pt-10 :md:pt-0">
       {/* Main content */}
       <img
         src="hero.jpg"

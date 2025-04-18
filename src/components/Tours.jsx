@@ -118,7 +118,7 @@ export default function Tours({ onBook }) {
                       </button>
                       <button
                         onClick={() => onBook(tour)}
-                        className="bg-yellow-700 text-white px-4 py-2 rounded-lg hover:bg-yellow-700 transition-colors"
+                        className="bg-yellow-700 text-white p-2 rounded-lg hover:bg-yellow-700 transition-colors"
                       >
                         Book Now
                       </button>
