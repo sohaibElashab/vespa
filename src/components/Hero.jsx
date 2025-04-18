@@ -13,7 +13,7 @@ export default function Hero() {
     <section className="relative h-screen bg-white flex items-center overflow-hidden">
       {/* Main content */}
       <img
-        src="hero.webp"
+        src="hero.jpg"
         alt="Vespa Scooter"
         className="xl:w-[60%] md:w-[70%] hidden md:block w-full h-auto object-contain md:object-right max-h-96 md:max-h-screen absolute right-0 top-1/2 -translate-y-1/2"
       />
@@ -68,7 +68,7 @@ export default function Hero() {
           </div>
         </div>
         <img
-          src="hero-mobile.webp"
+          src="hero-mobile.jpg"
           alt="Vespa Scooter"
           className="xl:w-[60%] md:w-[70%] md:hidden block w-full h-auto object-contain max-h-96"
         />
