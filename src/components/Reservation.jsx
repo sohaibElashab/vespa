@@ -43,7 +43,7 @@ export default function Reservation({ reservationTour }) {
     duration: "",
     scooters: {},
   });
-  const [isSubmitting, setIsSubmitting] = useState(true);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isGoodSubmitting, setIsGoodSubmitting] = useState(true);
   const [formError, setFormError] = useState("");
   const [preferredTime, setPreferredTime] = useState("");
@@ -701,31 +701,6 @@ export default function Reservation({ reservationTour }) {
                       </div>
                     ))}
                   </div>
-
-                  {Object.keys(vehicleQuantities).length > 0 && (
-                    <div className="mt-4 p-4 bg-gray-50 rounded-lg border border-gray-200">
-                      <h4 className="font-medium text-gray-900 mb-2">
-                        Selected Scooters:
-                      </h4>
-                      <ul className="space-y-2">
-                        {Object.entries(vehicleQuantities).map(
-                          ([name, quantity], index) => {
-                            const scooter = scooters.find(
-                              (v) => v.name === name
-                            );
-                            return (
-                              <li key={index} className="flex justify-between">
-                                <span>{scooter.name}</span>
-                                <span className="font-medium">
-                                  {quantity} × {scooter.price}
-                                </span>
-                              </li>
-                            );
-                          }
-                        )}
-                      </ul>
-                    </div>
-                  )}
                 </div>
               ) : (
                 <div>
