@@ -28,8 +28,8 @@ export default function LocationMap() {
                 </div>
               )}
               <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4166.4361178626!2d-8.006642855124893!3d31.638240829432615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdafef0031bb7519%3A0xc4022a02e695feee!2sMOTO%20RENT%20BY%20RITA!5e1!3m2!1sfr!2sma!4v1761580559683!5m2!1sfr!2sma"
                 title="Location Map"
-                src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=31.638668,%20-8.006310+(Tropical%20Island%20Resort)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -63,11 +63,11 @@ export default function LocationMap() {
                 <div>
                   <h4 className="font-medium text-gray-900">Address</h4>
                   <p className="mt-1 text-gray-600">
-                    Marrakech, Morocco
+                    RES AMINA MAG 30 RDC K. B OUALID,
                     <br />
-                    Marrakech, Morocco
+                    40000 Marrakech,
                     <br />
-                    Marrakech, Morocco
+                    Morocco
                   </p>
                 </div>
               </div>
@@ -77,7 +77,7 @@ export default function LocationMap() {
                 <div>
                   <h4 className="font-medium text-gray-900">Phone</h4>
                   <p className="mt-1 text-gray-600">
-                    Reservations: (+212) 672 217 210
+                    Reservations: (+212) 666 478 077
                   </p>
                 </div>
               </div>

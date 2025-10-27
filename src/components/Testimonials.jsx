@@ -3,29 +3,30 @@ import Title from "./Title";
 const testimonials = [
   {
     id: 1,
-    name: "Sarah Thompson",
-    location: "United States",
+    name: "Laura Bennett",
+    location: "UK",
     rating: 5,
-    text: "Amazing experience! The ATV tour was the highlight of our trip. Professional staff and well-maintained scooters.",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100",
+    text: "Absolutely loved it! Riding a Vespa through Marrakech was unforgettable. The team was so friendly and made everything super easy. Highly recommend for anyone visiting the city!",
+    image: "https://images.unsplash.com/photo-1502685104226-ee32379fefbe?w=100",
   },
   {
     id: 2,
-    name: "Michael Chen",
-    location: "Singapore",
+    name: "Adam Fischer",
+    location: "Germany",
     rating: 5,
-    text: "Perfect scooter rental service. Made exploring the island so much easier and more enjoyable.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100",
+    text: "Fantastic experience! The scooters were new and well maintained, and exploring the medina and Palmeraie on a Vespa felt like pure freedom. Great service and fair prices!",
+    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100",
   },
   {
     id: 3,
-    name: "Emma Rodriguez",
-    location: "Spain",
+    name: "Sofia Martins",
+    location: "Portugal",
     rating: 5,
-    text: "The sunset tour was breathtaking! Our guide was knowledgeable and friendly. Highly recommended!",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100",
+    text: "The best way to discover Marrakech! We booked a couple’s tour to the Agafay Desert and it was magical — sunset views, mint tea, and amazing guides. Thank you for the memories!",
+    image: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=100",
   },
 ];
+
 
 function StarRating({ rating }) {
   return (

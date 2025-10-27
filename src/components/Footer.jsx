@@ -1,5 +1,18 @@
-import { Facebook, Instagram, Mail, Twitter, Youtube } from "lucide-react";
+import { Instagram, Mail } from "lucide-react";
 import { useState } from "react";
+
+// TikTok SVG Icon (custom)
+const TikTokIcon = ({ size = 20 }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={size}
+    height={size}
+    fill="currentColor"
+    viewBox="0 0 24 24"
+  >
+    <path d="M12.6 2c.1 1.1.5 2.1 1.1 3 .8 1.1 2 1.8 3.3 1.9V10c-1.3 0-2.6-.4-3.8-1.1v5.9c0 3.4-2.7 6.2-6 6.2S1.9 18.2 1.9 14.8s2.7-6.2 6-6.2c.2 0 .4 0 .6.1v3c-.2 0-.4-.1-.6-.1-1.7 0-3 1.4-3 3.1s1.4 3.1 3 3.1 3-1.4 3-3.1V2h1.7z" />
+  </svg>
+);
 
 export default function Footer() {
   const [year] = useState(new Date().getFullYear());
@@ -13,20 +26,30 @@ export default function Footer() {
   ];
 
   const socialLinks = [
-    { name: "Facebook", href: "#", icon: <Facebook size={20} /> },
-    { name: "Instagram", href: "#", icon: <Instagram size={20} /> },
-    { name: "Twitter", href: "#", icon: <Twitter size={20} /> },
-    { name: "YouTube", href: "#", icon: <Youtube size={20} /> },
-    { name: "Mail", href: "#", icon: <Mail size={20} /> },
+    {
+      name: "Instagram",
+      href: "https://www.instagram.com/moto.rent.by.rita/",
+      icon: <Instagram size={20} />,
+    },
+    {
+      name: "Mail",
+      href: "mailto:motorentbyrita@gmail.com",
+      icon: <Mail size={20} />,
+    },
+    {
+      name: "TikTok",
+      href: "https://www.tiktok.com/@moto.rent.by.rita",
+      icon: <TikTokIcon size={20} />,
+    },
   ];
 
   return (
     <footer className="py-10 md:py-16 bg-[#1B1613]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Logo or Brand - Optional */}
+        {/* Logo */}
         <div className="flex justify-center mb-8">
           <div className="text-xl md:text-2xl font-bold text-white">
-            Moto <span className="text-orange-900">By Rita</span>
+            Moto Rent <span className="text-orange-900">By Rita</span>
           </div>
         </div>
 
@@ -49,6 +72,8 @@ export default function Footer() {
             <a
               key={index}
               href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-gray-400 hover:text-yellow-700 p-2 rounded-full hover:bg-gray-800 transition-all duration-200"
               aria-label={social.name}
             >
@@ -62,8 +87,19 @@ export default function Footer() {
 
         {/* Copyright */}
         <div className="text-center">
-          <p className="text-sm text-gray-400">
+          <p className="text-sm text-gray-400 mb-1">
             © {year} Moto By Rita, Inc. All rights reserved.
+          </p>
+          <p className="text-sm text-gray-400">
+            Developed by{" "}
+            <a
+              href="https://sohaibelashab.github.io/portfolio/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-yellow-700 hover:underline"
+            >
+              Sohaib Elashab
+            </a>
           </p>
         </div>
       </div>

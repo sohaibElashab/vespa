@@ -24,8 +24,6 @@ import axios from "axios";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import { Link } from "react-scroll";
 
-const baseURL = "http://localhost:3000";
-
 export default function Reservation({ reservationTour }) {
   const [reservationType, setReservationType] = useState("rental");
   const [selectedVehicle, setSelectedVehicle] = useState(null);
@@ -39,7 +37,7 @@ export default function Reservation({ reservationTour }) {
   const [customTour, setCustomTour] = useState({
     title: "",
     place: "",
-    participants: 1,
+    participants: 2,
     duration: "",
     scooters: {},
   });
@@ -47,7 +45,7 @@ export default function Reservation({ reservationTour }) {
   const [isGoodSubmitting, setIsGoodSubmitting] = useState(true);
   const [formError, setFormError] = useState("");
   const [preferredTime, setPreferredTime] = useState("");
-  const [participants, setParticipants] = useState(1);
+  const [participants, setParticipants] = useState(2);
   const [comments, setComments] = useState("");
   const [personalInfo, setPersonalInfo] = useState({
     firstName: "",
@@ -335,7 +333,7 @@ export default function Reservation({ reservationTour }) {
     setCustomTour({
       title: "",
       place: "",
-      participants: 1,
+      participants: 2,
       duration: "",
       scooters: {},
     });
@@ -343,7 +341,7 @@ export default function Reservation({ reservationTour }) {
     setIsGoodSubmitting(true);
     setFormError("");
     setPreferredTime("");
-    setParticipants(1);
+    setParticipants(2);
     setComments("");
     setPersonalInfo({
       firstName: "",
@@ -366,7 +364,7 @@ export default function Reservation({ reservationTour }) {
       const reservationData = prepareReservationData();
 
       await axios
-        .post(baseURL, reservationData)
+        .post(`${import.meta.env.VITE_BASE_URL}/email/reservation`, reservationData)
         .then((response) => {
           setIsGoodSubmitting(true);
       resetForm();
@@ -395,19 +393,19 @@ export default function Reservation({ reservationTour }) {
   };
 
   // Generate participants options based on selected tour
-  const getParticipantsOptions = () => {
-    if (!selectedTour) return null;
+  // const getParticipantsOptions = () => {
+  //   if (!selectedTour) return null;
 
-    const selectedTourDetails = tours.find((tour) => tour.id === selectedTour);
-    if (!selectedTourDetails) return null;
+  //   const selectedTourDetails = tours.find((tour) => tour.id === selectedTour);
+  //   if (!selectedTourDetails) return null;
 
-    const maxPeople = selectedTourDetails.maxPeople;
-    return Array.from({ length: maxPeople }, (_, i) => i + 1).map((num) => (
-      <option key={num} value={num}>
-        {num} {num === 1 ? "person" : "people"}
-      </option>
-    ));
-  };
+  //   const minPeople = selectedTourDetails.minPeople;
+  //   return Array.from({ length: minPeople }, (_, i) => i + 1).map((num) => (
+  //     <option key={num} value={num}>
+  //       {num} {num === 1 ? "person" : "people"}
+  //     </option>
+  //   ));
+  // };
 
   return (
     <section id="reservation" className="py-16">
@@ -898,7 +896,7 @@ export default function Reservation({ reservationTour }) {
                                 </div>
                                 <div className="flex items-center">
                                   <Users className="h-4 w-4 mr-1 text-yellow-700" />
-                                  <span>Max: {tour.maxPeople} people</span>
+                                  <span>Max: {tour.minPeople} people</span>
                                 </div>
                                 <div className="flex items-center">
                                   <span className="font-semibold text-yellow-700">
@@ -1059,25 +1057,25 @@ export default function Reservation({ reservationTour }) {
                       <Users className="w-4 h-4 mr-1 text-yellow-700" />
                       Number of Participants *
                     </label>
-                    <select
+                    <input
+                      type="number"
                       id="participants"
                       className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
                       required
                       value={participants}
                       onChange={(e) => setParticipants(e.target.value)}
+                      min={
+                        selectedTour
+                          ? tours.find((tour) => tour.id === selectedTour)?.minPeople || 1
+                          : 1
+                      }
                       disabled={!selectedTour}
-                    >
-                      {!selectedTour ? (
-                        <option value="">Select a tour first</option>
-                      ) : (
-                        getParticipantsOptions()
-                      )}
-                    </select>
-
+                    />
+                    
                     {selectedTour && (
                       <p className="mt-1 text-sm text-gray-500">
-                        Maximum{" "}
-                        {tours.find((t) => t.id === selectedTour)?.maxPeople ||
+                        Minimum{" "}
+                        {tours.find((t) => t.id === selectedTour)?.minPeople ||
                           0}{" "}
                         people per tour
                       </p>

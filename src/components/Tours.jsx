@@ -62,7 +62,7 @@ export default function Tours({ onBook }) {
                     </div>
                     <div className="flex items-center">
                       <Users className="h-5 w-5 mr-2 text-yellow-700" />
-                      <span>Max: {tour.maxPeople} people</span>
+                      <span>Min: {tour.minPeople} people</span>
                     </div>
                   </div>
 
@@ -104,7 +104,7 @@ export default function Tours({ onBook }) {
                   <div className="flex items-center justify-between">
                     <div>
                       <span className="md:text-3xl text-xl font-bold text-yellow-700">
-                        ${tour.price}
+                        {tour.price}DH
                       </span>
                       <span className="text-gray-600 text-sm">/person</span>
                     </div>
