@@ -1,5 +1,6 @@
 import { Instagram, Mail } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-scroll";
 
 // TikTok SVG Icon (custom)
 const TikTokIcon = ({ size = 20 }) => (
@@ -56,13 +57,14 @@ export default function Footer() {
         {/* Navigation Links */}
         <nav className="flex flex-wrap justify-center gap-3 md:gap-8 mb-6 md:mb-8">
           {navigationLinks.map((link, index) => (
-            <a
+            <Link
+              to={link.href}
+              smooth={true}
               key={index}
-              href={link.href}
-              className="text-sm md:text-base text-gray-300 hover:text-yellow-700 transition-colors duration-200"
+              className="text-sm md:text-base text-gray-300 hover:text-yellow-700 transition-colors duration-200 cursor-pointer"
             >
               {link.name}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -74,7 +76,7 @@ export default function Footer() {
               href={social.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-yellow-700 p-2 rounded-full hover:bg-gray-800 transition-all duration-200"
+              className="text-gray-400 hover:text-yellow-700 p-2 rounded-full hover:bg-gray-800 transition-all duration-200 cursor-pointer"
               aria-label={social.name}
             >
               {social.icon}
@@ -96,7 +98,7 @@ export default function Footer() {
               href="https://sohaibelashab.github.io/portfolio/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-yellow-700 hover:underline"
+              className="text-yellow-700 hover:underline cursor-pointer"
             >
               Sohaib Elashab
             </a>
