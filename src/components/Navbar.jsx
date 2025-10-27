@@ -66,7 +66,7 @@ export default function Navbar() {
                 <span
                   className={`text-2xl font-bold tracking-tight text-[#1B1613]`}
                 >
-                  Moto Rent By <span className="text-orange-900">Rita</span>
+                  Moto Rent <span className="text-orange-900">By Rita</span>
                 </span>
               </div>
             </div>
